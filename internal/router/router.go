@@ -8,6 +8,7 @@ import (
 func Setup() *gin.Engine {
 	e := gin.New()
 	e.Use(middleware.CrossDomain)
+	e.Use(middleware.RequestHeaders)
 
 	return e
 }

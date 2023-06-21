@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"github.com/NC-Cj/gen-gin-norm/pkg"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -15,5 +16,10 @@ func CrossDomain(context *gin.Context) {
 	if method == "OPTIONS" {
 		context.AbortWithStatus(http.StatusNoContent)
 	}
+	context.Next()
+}
+func RequestHeaders(context *gin.Context) {
+	context.Header("X-Request-ID", pkg.GenerateRequestID())
+	context.Header("X-Request-Time", pkg.GenerateRequestTime())
 	context.Next()
 }
