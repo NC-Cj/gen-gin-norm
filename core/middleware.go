@@ -1,4 +1,4 @@
-package app
+package core
 
 import (
 	"github.com/NC-Cj/gen-gin-norm/core/logger"
@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-// requestHandler 是一个中间件，用于处理请求和响应
-func requestHandler() gin.HandlerFunc {
+// RequestHandler 是一个中间件，用于处理请求和响应
+func RequestHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 设置跨域
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
